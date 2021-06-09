@@ -1,8 +1,9 @@
 import React from 'react'
 import './Cards.css'
 import CardItem from './CardItem'
+import { useState } from 'react/cjs/react.development'
 
-function Cards() {
+function Cards(props) {
   const drinksInfo = [
     {
       index: 0,
@@ -70,23 +71,42 @@ function Cards() {
     },
   ]
 
+  const { choosedItem, searchVal } = props
+
   return (
     <div className="cards">
       <div className="cards__container">
         <div className="cards__wrapper">
           <ul className="cards__items">
-            {drinksInfo.map((drinkObj) => (
-              <CardItem
-                key={drinkObj.index}
-                id={drinkObj.index}
-                price={drinkObj.price}
-                src={drinkObj.productImage}
-                name={drinkObj.productName}
-                type={drinkObj.type}
-                isSale={drinkObj.isSale}
-                path="/"
-              />
-            ))}
+            {choosedItem === 'All'
+              ? drinksInfo.map((drinkObj) => (
+                  <CardItem
+                    key={drinkObj.index}
+                    id={drinkObj.index}
+                    price={drinkObj.price}
+                    src={drinkObj.productImage}
+                    name={drinkObj.productName}
+                    type={drinkObj.type}
+                    isSale={drinkObj.isSale}
+                    path="/"
+                  />
+                ))
+              : drinksInfo.map((drinkObj) => {
+                  if (drinkObj.type === choosedItem) {
+                    return (
+                      <CardItem
+                        key={drinkObj.index}
+                        id={drinkObj.index}
+                        price={drinkObj.price}
+                        src={drinkObj.productImage}
+                        name={drinkObj.productName}
+                        type={drinkObj.type}
+                        isSale={drinkObj.isSale}
+                        path="/"
+                      />
+                    )
+                  }
+                })}
           </ul>
         </div>
       </div>

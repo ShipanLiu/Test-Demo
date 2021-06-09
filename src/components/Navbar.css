@@ -11,7 +11,6 @@
 }
 
 .navbar-container {
-  flex: 1;
   max-width: 1500px;
   height: 80px;
 }
@@ -65,6 +64,20 @@
   transition: all 0.2s ease-out;
 }
 
+.search-bar {
+  flex: 1;
+  width: 50%;
+  height: 2.5rem;
+  /* margin-left: 4rem; */
+}
+.search-bar input {
+  width: 80%;
+  height: 100%;
+}
+.search-bar button {
+  height: 100%;
+}
+
 .fa-cat {
   margin-left: 0.3rem;
   color: #fff;
@@ -92,6 +105,7 @@
   to {background-color: yellow;}
 } */
 
+/* 大于960之后， 就是另外一种排版。 */
 @media screen and (max-width: 580px) {
   .NavbarItems {
     position: relative;

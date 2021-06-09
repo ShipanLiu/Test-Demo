@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { Button } from './Button'
 import './Navbar.css'
 import { Link } from 'react-router-dom'
 import {
@@ -12,9 +11,11 @@ import {
 import { Input, Space } from 'antd'
 const { Search } = Input
 
-function Navbar() {
+function Navbar(props) {
   const [click, setClick] = useState(false)
   const [button, setButton] = useState(true)
+  const [loading, setloading] = useState(false)
+  const [searchValue, setSearchValue] = useState('')
 
   const handleClick = () => setClick(!click)
   const closeMobileMenu = () => setClick(false)
@@ -25,6 +26,17 @@ function Navbar() {
     } else {
       setButton(true)
     }
+  }
+
+  const onChange = (e) => {
+    setSearchValue(e.target.value)
+  }
+
+  const onSubmit = (e) => {
+    e.preventDefault()
+    // console.log(searchValue)
+    props.onSearch(searchValue)
+    setSearchValue('')
   }
 
   return (
@@ -39,6 +51,7 @@ function Navbar() {
             <i className="fas fa-cat" />
           </Link> */}
           <div className="menu-icon" onClick={handleClick}>
+            {/* 三条线的bar 点就变×*/}
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
           </div>
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
@@ -68,15 +81,26 @@ function Navbar() {
             </li>
           </ul>
         </div>
-        <Search
+        {/* <Search
           className="search-bar"
           placeholder="input search text"
-          allowClear
+          // allowClear
           enterButton="Search"
           size="large"
           style={{ marginRight: '5rem' }}
-          // onSearch={onSearch}
-        />
+          // loading={loading}
+          onSearch={onSearch}
+          value={searchValue}
+        /> */}
+        <form className="search-bar" onSubmit={onSubmit}>
+          <input
+            type="text"
+            onChange={onChange}
+            placeHolder="search here"
+            value={searchValue}
+          />
+          <button>search</button>
+        </form>
       </nav>
     </>
   )
