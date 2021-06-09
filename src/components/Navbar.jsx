@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useRef, useCallback } from 'react'
 import './Navbar.css'
 import { Link, withRouter } from 'react-router-dom'
 import {
@@ -6,45 +6,63 @@ import {
   BackwardOutlined,
   ForwardOutlined,
   CloseOutlined,
-  UnorderedListOutlined,
 } from '@ant-design/icons'
-import { Input, Space } from 'antd'
-const { Search } = Input
 
 function Navbar(props) {
   const [click, setClick] = useState(false)
-  const [button, setButton] = useState(true)
-  const [loading, setloading] = useState(false)
-  const [searchValue, setSearchValue] = useState('')
 
   const handleClick = () => setClick(!click)
   const closeMobileMenu = () => setClick(false)
+  const inputRef = useRef()
 
-  const showButton = () => {
-    if (window.innerWidth <= 960) {
-      setButton(false)
-    } else {
-      setButton(true)
-    }
-  }
+  // const showButton = () => {
+  //   if (window.innerWidth <= 960) {
+  //     setButton(false)
+  //   } else {
+  //     setButton(true)
+  //   }
+  // }
 
-  const onChange = (e) => {
-    setSearchValue(e.target.value)
-  }
+  // const onChange = (e) => {
+  //   setSearchValue(e.target.value)
+  //   console.log(searchValue)
+  // }
 
-  const onSubmit = (e) => {
+  // const itemArr = [
+  //   'All',
+  //   'Beer',
+  //   'Wine',
+  //   'Spirits',
+  //   'Cider',
+  //   'all',
+  //   'beer',
+  //   'wine',
+  //   'spirits',
+  //   'cider',
+  // ]
+
+  const onSubmit = useCallback((e) => {
     e.preventDefault()
-    props.onSearch(searchValue)
-    setSearchValue('')
-    props.history.push('/products')
-    console.log(props)
-  }
+    const inputValue = inputRef.current.value.trim()
+    console.log(inputValue)
+    if (inputValue.length === 0) {
+      return
+    } else {
+      inputRef.current.value = ''
+      props.onSearch(inputValue)
+      props.history.push('/products')
+    }
+  })
 
-  const goBackToHome = () => {
+  const goBackToHome = useCallback(() => {
     closeMobileMenu()
-    return 'All'
-  }
-
+    // // refresh the page
+    inputRef.current.value = ''
+    props.history.push('/home')
+  })
+  const deleteInput = useCallback(() => {
+    inputRef.current.value = ''
+  })
   return (
     <>
       <nav className="navbar">
@@ -68,30 +86,14 @@ function Navbar(props) {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/" className="nav-links" onClick={closeMobileMenu}>
+              <Link to="/" className="nav-links" onClick={deleteInput}>
                 <CloseOutlined />
               </Link>
             </li>
           </ul>
         </div>
-        {/* <Search
-          className="search-bar"
-          placeholder="input search text"
-          // allowClear
-          enterButton="Search"
-          size="large"
-          style={{ marginRight: '5rem' }}
-          // loading={loading}
-          onSearch={onSearch}
-          value={searchValue}
-        /> */}
         <form className="search-bar" onSubmit={onSubmit}>
-          <input
-            type="text"
-            onChange={onChange}
-            placeholder="search here"
-            value={searchValue}
-          />
+          <input type="text" placeholder="search here" ref={inputRef} />
           <button>search</button>
         </form>
       </nav>

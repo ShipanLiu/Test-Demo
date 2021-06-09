@@ -1,6 +1,6 @@
 import React from 'react'
 import '../App.css'
-import { Menu, Dropdown, Button, message, Space, Tooltip } from 'antd'
+import { Menu, Dropdown, Button, Space } from 'antd'
 import { DownOutlined, TagOutlined } from '@ant-design/icons'
 import './HeroSection.css'
 import { useState } from 'react/cjs/react.development'

@@ -160,6 +160,8 @@
   .search-bar input {
     width: 60%;
     height: 100%;
+    color: #ccc !important;
+    font-weight: 400 !important;
   }
 
   .navbar-logo {

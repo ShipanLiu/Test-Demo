@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom'
 import Navbar from './components/Navbar.jsx'
 import Home from './components/pages/Home'
 import Products from './components/pages/Products'
@@ -20,9 +20,10 @@ export default function App() {
         <Route path="/products">
           <Products searchVal={searchVal}></Products>
         </Route>
-        <Route path="/">
+        <Route path="/home">
           <Home></Home>
         </Route>
+        <Redirect from="/" to="/home"></Redirect>
       </Switch>
     </>
   )

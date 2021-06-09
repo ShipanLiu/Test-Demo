@@ -1,3 +1,7 @@
+li {
+  list-style: none;
+}
+
 .cards {
   /* padding: 4rem; */
   background: #fff;
@@ -14,7 +18,7 @@
 .cards__wrapper {
   position: relative;
   margin: 0.5rem 0 1rem;
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
 }
 
 .cards__items {
@@ -25,7 +29,8 @@
 
 .cards__item {
   flex: 1 0 21%;
-  margin: 0 1rem;
+  margin: 0.8rem 1rem 0;
+  background-color: #fff;
   border: 1px solid #000;
   border-radius: 10px;
 }
@@ -34,6 +39,7 @@
   display: flex;
   flex-flow: column;
   width: 100%;
+  height: 100%;
   overflow: hidden;
   text-decoration: none;
   border-radius: 10px;
@@ -45,26 +51,31 @@
 .cards__item__pic-wrap {
   position: relative;
   width: 100%;
+  height: 70%;
   padding-top: 100%;
   overflow: hidden;
 }
 
-.fade-img {
-  animation-name: fade-img;
-  animation-duration: 2s;
-}
 .sale-lable {
   position: absolute;
   top: 0;
   box-sizing: border-box;
   max-width: calc((100%) - 60px);
-  margin-left: 10px;
+  margin-left: 6px;
   padding: 6px 8px;
   color: #fff;
   font-weight: 700;
   font-size: 12px;
   background-color: #1f98f4;
+  border-radius: 10%;
+  transition: all 0.2s ease-in;
   content: attr(data-category);
+}
+
+.sale-lable:hover {
+  font-size: 20px;
+  background-color: #f70103;
+  transition: all 0.3s ease-out;
 }
 
 .cards__item__img {
@@ -78,8 +89,8 @@
   max-width: 100%;
   height: 100%;
   max-height: 100%;
-  object-fit: contain;
-  transition: all 0.2s linear;
+  object-fit: fill;
+  transition: all 0.3s ease-out;
 }
 
 .cards__item__img:hover {
@@ -87,7 +98,8 @@
 }
 
 .cards__item__info {
-  padding: 20px 30px 30px;
+  flex: 1;
+  padding: 20px 5px 10px;
 }
 
 .cards__item__text {
