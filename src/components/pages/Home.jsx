@@ -5,7 +5,7 @@ import HeroSection from '../HeroSection'
 import Footer from '../Footer'
 
 function Home(props) {
-  const [choosedItem, setChoosed] = useState(0)
+  const [choosedItem, setChoosed] = useState('All')
   const itemArr = ['All', 'Beer', 'Wine', 'Spirits', 'Cider']
   const choosedKey = (key) => {
     setChoosed(itemArr[key])

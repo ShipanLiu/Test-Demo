@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './Navbar.css'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import {
   HomeOutlined,
   BackwardOutlined,
@@ -37,6 +37,8 @@ function Navbar(props) {
     // console.log(searchValue)
     props.onSearch(searchValue)
     setSearchValue('')
+    props.history.push('/products')
+    console.log(props)
   }
 
   return (
@@ -46,10 +48,6 @@ function Navbar(props) {
           <HomeOutlined />
         </Link>
         <div className="navbar-container">
-          {/* <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-            WorldEx
-            <i className="fas fa-cat" />
-          </Link> */}
           <div className="menu-icon" onClick={handleClick}>
             {/* 三条线的bar 点就变×*/}
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
@@ -62,20 +60,12 @@ function Navbar(props) {
               </Link>
             </li>
             <li className="nav-item">
-              <Link
-                to="/services"
-                className="nav-links"
-                onClick={closeMobileMenu}
-              >
+              <Link to="/" className="nav-links" onClick={closeMobileMenu}>
                 <ForwardOutlined />
               </Link>
             </li>
             <li className="nav-item">
-              <Link
-                to="/products"
-                className="nav-links"
-                onClick={closeMobileMenu}
-              >
+              <Link to="/" className="nav-links" onClick={closeMobileMenu}>
                 <CloseOutlined />
               </Link>
             </li>
@@ -96,7 +86,7 @@ function Navbar(props) {
           <input
             type="text"
             onChange={onChange}
-            placeHolder="search here"
+            placeholder="search here"
             value={searchValue}
           />
           <button>search</button>
@@ -106,4 +96,4 @@ function Navbar(props) {
   )
 }
 
-export default Navbar
+export default withRouter(Navbar)

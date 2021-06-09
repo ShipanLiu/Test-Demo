@@ -13,3 +13,25 @@
   width: 90%;
   margin: 0 auto;
 }
+
+.products-container {
+  font-size: 30px;
+  background-color: #000;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: fill;
+}
+
+.products-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10vh;
+}
+.products-header h1 {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  vertical-align: center;
+}

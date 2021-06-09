@@ -71,7 +71,8 @@ function Cards(props) {
     },
   ]
 
-  const { choosedItem, searchVal } = props
+  const { choosedItem } = props
+  console.log(choosedItem)
 
   return (
     <div className="cards">
