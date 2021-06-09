@@ -2,7 +2,7 @@ import React from 'react'
 import './Cards.css'
 import CardItem from './CardItem'
 
-function Cards(props) {
+function HotSale(props) {
   const drinksInfo = [
     {
       index: 0,
@@ -78,33 +78,20 @@ function Cards(props) {
       <div className="cards__container">
         <div className="cards__wrapper">
           <ul className="cards__items">
-            {choosedItem === 'All'
-              ? drinksInfo.map((drinkObj) => (
-                  <CardItem
-                    key={drinkObj.index}
-                    id={drinkObj.index}
-                    price={drinkObj.price}
-                    src={drinkObj.productImage}
-                    name={drinkObj.productName}
-                    type={drinkObj.type}
-                    isSale={drinkObj.isSale}
-                    path="/"
-                  />
-                ))
-              : drinksInfo
-                  .filter((drinkObj) => drinkObj.type === choosedItem)
-                  .map((drinkObj) => (
-                    <CardItem
-                      key={drinkObj.index}
-                      id={drinkObj.index}
-                      price={drinkObj.price}
-                      src={drinkObj.productImage}
-                      name={drinkObj.productName}
-                      type={drinkObj.type}
-                      isSale={drinkObj.isSale}
-                      path="/"
-                    />
-                  ))}
+            {drinksInfo
+              .filter((drinkObj) => drinkObj.isSale === true)
+              .map((drinkObj) => (
+                <CardItem
+                  key={drinkObj.index}
+                  id={drinkObj.index}
+                  price={drinkObj.price}
+                  src={drinkObj.productImage}
+                  name={drinkObj.productName}
+                  type={drinkObj.type}
+                  isSale={drinkObj.isSale}
+                  path="/"
+                />
+              ))}
           </ul>
         </div>
       </div>
@@ -112,4 +99,4 @@ function Cards(props) {
   )
 }
 
-export default Cards
+export default HotSale

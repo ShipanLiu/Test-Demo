@@ -21,7 +21,6 @@
 
 .products-container {
   font-size: 30px;
-  background-color: #000;
   background-repeat: no-repeat;
   background-position: center;
   background-size: fill;
@@ -33,10 +32,22 @@
   align-items: center;
   justify-content: center;
   height: 10vh;
+  background-color: #ccc;
 }
 .products-header h1 {
   margin: 0;
   padding: 0;
   color: #fff;
   vertical-align: center;
+}
+
+.products-recommend {
+  width: 30%;
+  margin: 0;
+  margin-top: 20px;
+  padding: 0;
+  color: #fff;
+  vertical-align: center;
+  background-color: #44b1ce;
+  border-radius: 10px;
 }
