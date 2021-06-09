@@ -53,8 +53,7 @@
   animation-name: fade-img;
   animation-duration: 2s;
 }
-
-.cards__item__pic-wrap::after {
+.sale-lable {
   position: absolute;
   top: 0;
   box-sizing: border-box;
