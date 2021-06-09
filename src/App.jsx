@@ -4,7 +4,6 @@ import Navbar from './components/Navbar.jsx'
 import Home from './components/pages/Home'
 import Products from './components/pages/Products'
 
-// import './App.css'
 import 'antd/dist/antd.css'
 
 export default function App() {
@@ -12,17 +11,18 @@ export default function App() {
 
   const onSearch = (value) => {
     setSearchVal(value)
-    // console.log(value)
   }
 
   return (
     <>
       <Navbar onSearch={onSearch}></Navbar>
       <Switch>
-        <Route path="/">
-          <Home searchVal={searchVal}></Home>
+        <Route path="/products">
+          <Products searchVal={searchVal}></Products>
         </Route>
-        <Route path="/products" component={Products} />
+        <Route path="/">
+          <Home></Home>
+        </Route>
       </Switch>
     </>
   )
