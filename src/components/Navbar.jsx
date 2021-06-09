@@ -34,33 +34,36 @@ function Navbar(props) {
 
   const onSubmit = (e) => {
     e.preventDefault()
-    // console.log(searchValue)
     props.onSearch(searchValue)
     setSearchValue('')
     props.history.push('/products')
     console.log(props)
   }
 
+  const goBackToHome = () => {
+    closeMobileMenu()
+    return 'All'
+  }
+
   return (
     <>
       <nav className="navbar">
-        <Link to="/" className="nav-links nav-home" onClick={closeMobileMenu}>
+        <Link to="/" className="nav-links nav-home" onClick={goBackToHome}>
           <HomeOutlined />
         </Link>
         <div className="navbar-container">
           <div className="menu-icon" onClick={handleClick}>
-            {/* 三条线的bar 点就变×*/}
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
           </div>
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             <li></li>
             <li className="nav-item">
-              <Link to="/" className="nav-links" onClick={closeMobileMenu}>
+              <Link to="/" className="nav-links">
                 <BackwardOutlined />
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/" className="nav-links" onClick={closeMobileMenu}>
+              <Link to="/" className="nav-links">
                 <ForwardOutlined />
               </Link>
             </li>

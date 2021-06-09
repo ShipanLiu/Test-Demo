@@ -3,18 +3,21 @@ import '../App.css'
 import { Menu, Dropdown, Button, message, Space, Tooltip } from 'antd'
 import { DownOutlined, TagOutlined } from '@ant-design/icons'
 import './HeroSection.css'
+import { useState } from 'react/cjs/react.development'
 
 function HeroSection(props) {
+  const itemArr = ['All', 'Beer', 'Wine', 'Spirits', 'Cider']
+  const [choosedItem, setChoosedItem] = useState('All')
   function handleMenuClick(e) {
+    setChoosedItem(itemArr[e.key])
     props.choosedKey(e.key)
-  }
-
-  const buttonClick = () => {
-    props.choosedKey(0)
   }
 
   const menu = (
     <Menu onClick={handleMenuClick}>
+      <Menu.Item key="0" icon={<TagOutlined />}>
+        All
+      </Menu.Item>
       <Menu.Item key="1" icon={<TagOutlined />}>
         Beer
       </Menu.Item>
@@ -36,8 +39,8 @@ function HeroSection(props) {
         <p>Filter by</p>
         <Space className="hero-btns">
           <Dropdown overlay={menu}>
-            <Button onClick={buttonClick}>
-              All <DownOutlined />
+            <Button>
+              {choosedItem} <DownOutlined />
             </Button>
           </Dropdown>
         </Space>

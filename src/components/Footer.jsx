@@ -7,11 +7,9 @@ function Footer() {
     <div className="footer-container">
       <section className="footer-subscription">
         <p className="footer-subscription-heading">
-          Join the Adventure newsletter to receive our best vacation deals
+          Enjoy purchasing any drinks on our Webpage
         </p>
-        <p className="footer-subscription-text">
-          You can unsubscribe at any time.
-        </p>
+        <p className="footer-subHeading">never miss our new products</p>
         <div className="input-areas">
           <form>
             <input
@@ -20,9 +18,12 @@ function Footer() {
               type="email"
               placeholder="Your Email"
             />
-            <button>Subscribe</button>
+            <button className="subscribe-button">Subscribe</button>
           </form>
         </div>
+        <p className="footer-subscription-text">
+          You can unsubscribe at any time.
+        </p>
       </section>
       <div class="footer-links">
         <div className="footer-link-wrapper">
@@ -63,11 +64,11 @@ function Footer() {
         <div class="social-media-wrap">
           <div class="footer-logo">
             <Link to="/" className="social-logo">
-              TRVL
-              <i class="fab fa-typo3" />
+              BeerMark
+              <i class="fab fa-angellist" />
             </Link>
           </div>
-          <small class="website-rights">TRVL © 2020</small>
+          <small class="website-rights">TRVL © 2021</small>
           <div class="social-icons">
             <Link
               class="social-icon-link facebook"

@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 function CardItem(props) {
-  const { id, price, src, name, type, isSale, path } = props
+  const { price, src, name, path } = props
   return (
     <>
       <li className="cards__item">
