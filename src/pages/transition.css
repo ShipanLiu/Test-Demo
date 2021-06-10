@@ -1,0 +1,34 @@
+.card-enter,
+.card-appear {
+  transform: scale(0.6);
+  opacity: 0;
+}
+
+.card-enter-active,
+.card-appear-active {
+  transform: scale(1);
+  opacity: 1;
+  /* transition: opacity 500ms; */
+  /* transition: all 500ms; */
+  transition: opacity 500ms, transform 300ms;
+}
+
+.card-enter-done,
+.card-appear-done {
+  opacity: 1;
+}
+
+.card-exit {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.card-exit-active {
+  transform: scale(0);
+  opacity: 0;
+  transition: opacity 500ms, transform 300ms;
+}
+
+.card-exit-done {
+  opacity: 0;
+}

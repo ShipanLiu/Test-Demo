@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import Products from './pages/Products'
 
 import 'antd/dist/antd.css'
+import './pages/transition.css'
 
 export default function App() {
   const [searchVal, setSearchVal] = useState('')
