@@ -1,5 +1,6 @@
-Lib:   React
+yarn install
+yarn start
 
+![0](public/img/0.gif)
 
-
-started at 08.06 20:00
+![1](public/img/1.gif)
