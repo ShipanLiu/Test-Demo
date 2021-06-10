@@ -160,7 +160,7 @@
   .search-bar input {
     width: 60%;
     height: 100%;
-    color: #ccc !important;
+    color: #000 !important;
     font-weight: 400 !important;
   }
 
