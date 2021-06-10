@@ -1,8 +1,8 @@
 import React from 'react'
-import Cards from '../Cards'
-import HotSale from '../HoteSale'
-import Footer from '../Footer'
-import '../../App.css'
+import Cards from '../components/Cards/Cards'
+import HotSale from '../components/Cards/HoteSale'
+import Footer from '../components/Footer/Footer'
+import '../App.css'
 
 export default function Products(props) {
   const { searchVal } = props

@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
-import Navbar from './components/Navbar.jsx'
-import Home from './components/pages/Home'
-import Products from './components/pages/Products'
+import Navbar from './components/Navbar/Navbar.jsx'
+import Home from './pages/Home'
+import Products from './pages/Products'
 
 import 'antd/dist/antd.css'
 

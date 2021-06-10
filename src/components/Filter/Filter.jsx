@@ -1,8 +1,8 @@
 import React from 'react'
-import '../App.css'
+import '../../App.css'
 import { Menu, Dropdown, Button, Space } from 'antd'
 import { DownOutlined, TagOutlined } from '@ant-design/icons'
-import './HeroSection.css'
+import './Filter.css'
 import { useState } from 'react/cjs/react.development'
 
 function HeroSection(props) {
