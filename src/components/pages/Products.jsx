@@ -30,7 +30,7 @@ export default function Products(props) {
             <h1>So Sorry! We can't find it</h1>
           </div>
           <div className="products-recommend">
-            <p>take a look at out hot sale:</p>
+            <p>hot sale:</p>
           </div>
           <div className="products-card">
             <HotSale></HotSale>

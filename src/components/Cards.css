@@ -25,6 +25,8 @@ li {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 24px;
+  padding-bottom: 20px;
+  border: 1px solid #000;
 }
 
 .cards__item {
@@ -106,6 +108,12 @@ li {
   color: #252e48;
   font-size: 18px;
   line-height: 24px;
+}
+
+@media screen and (max-width: 800px) {
+  .cards__item {
+    flex: 1 0 41%;
+  }
 }
 
 @media only screen and (min-width: 1200px) {

@@ -67,7 +67,7 @@ function Navbar(props) {
     <>
       <nav className="navbar">
         <Link to="/" className="nav-links nav-home" onClick={goBackToHome}>
-          <HomeOutlined />
+          <CloseOutlined />
         </Link>
         <div className="navbar-container">
           <div className="menu-icon" onClick={handleClick}>
@@ -87,7 +87,7 @@ function Navbar(props) {
             </li>
             <li className="nav-item">
               <Link to="/" className="nav-links" onClick={deleteInput}>
-                <CloseOutlined />
+                <HomeOutlined />
               </Link>
             </li>
           </ul>
