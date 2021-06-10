@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar.jsx'
 import Home from './pages/Home'
@@ -10,9 +10,9 @@ import './pages/transition.css'
 export default function App() {
   const [searchVal, setSearchVal] = useState('')
 
-  const onSearch = (value) => {
+  const onSearch = useCallback((value) => {
     setSearchVal(value)
-  }
+  })
 
   return (
     <>

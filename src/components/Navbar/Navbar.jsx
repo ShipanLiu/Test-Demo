@@ -11,10 +11,11 @@ import {
 
 function Navbar(props) {
   const [click, setClick] = useState(false)
-  let history = useHistory()
-  const handleClick = () => setClick(!click)
-  const closeMobileMenu = () => setClick(false)
   const inputRef = useRef()
+  let history = useHistory()
+
+  const handleClick = useCallback(() => setClick(!click))
+  const closeMobileMenu = useCallback(() => setClick(false))
 
   const onSubmit = useCallback((e) => {
     e.preventDefault()
