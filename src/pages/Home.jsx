@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import '../App.css'
 import Cards from '../components/Cards/Cards'
-import HeroSection from '../components/Filter/Filter'
+import Filter from '../components/Filter/Filter'
 import Footer from '../components/Footer/Footer'
 
 function Home(props) {
@@ -15,7 +15,7 @@ function Home(props) {
   return (
     <div className="home-container">
       <div className="home-wrapper">
-        <HeroSection choosedKey={choosedKey} />
+        <Filter choosedKey={choosedKey} />
         <Cards choosedItem={choosedItem} />
       </div>
       <Footer />

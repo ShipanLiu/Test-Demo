@@ -5,7 +5,7 @@ import { DownOutlined, TagOutlined } from '@ant-design/icons'
 import './Filter.css'
 import { useState } from 'react/cjs/react.development'
 
-function HeroSection(props) {
+function Filter(props) {
   const itemArr = ['All', 'Beer', 'Wine', 'Spirits', 'Cider']
   const [choosedItem, setChoosedItem] = useState('All')
   function handleMenuClick(e) {
@@ -34,7 +34,8 @@ function HeroSection(props) {
   )
 
   return (
-    <div className="cate">
+    // unit test
+    <div className="cate" data-testid="filter">
       <div className="hero-container">
         <p>Filter by</p>
         <Space className="hero-btns">
@@ -49,4 +50,4 @@ function HeroSection(props) {
   )
 }
 
-export default HeroSection
+export default Filter

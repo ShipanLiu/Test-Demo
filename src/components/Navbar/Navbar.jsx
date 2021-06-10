@@ -1,6 +1,7 @@
 import React, { useState, useRef, useCallback } from 'react'
+import { useHistory } from 'react-router-dom'
 import './Navbar.css'
-import { Link, withRouter } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import {
   HomeOutlined,
   BackwardOutlined,
@@ -10,36 +11,10 @@ import {
 
 function Navbar(props) {
   const [click, setClick] = useState(false)
-
+  let history = useHistory()
   const handleClick = () => setClick(!click)
   const closeMobileMenu = () => setClick(false)
   const inputRef = useRef()
-
-  // const showButton = () => {
-  //   if (window.innerWidth <= 960) {
-  //     setButton(false)
-  //   } else {
-  //     setButton(true)
-  //   }
-  // }
-
-  // const onChange = (e) => {
-  //   setSearchValue(e.target.value)
-  //   console.log(searchValue)
-  // }
-
-  // const itemArr = [
-  //   'All',
-  //   'Beer',
-  //   'Wine',
-  //   'Spirits',
-  //   'Cider',
-  //   'all',
-  //   'beer',
-  //   'wine',
-  //   'spirits',
-  //   'cider',
-  // ]
 
   const onSubmit = useCallback((e) => {
     e.preventDefault()
@@ -50,7 +25,7 @@ function Navbar(props) {
     } else {
       inputRef.current.value = ''
       props.onSearch(inputValue)
-      props.history.push('/products')
+      history.push('/products')
     }
   })
 
@@ -58,17 +33,18 @@ function Navbar(props) {
     closeMobileMenu()
     // // refresh the page
     inputRef.current.value = ''
-    props.history.push('/home')
+    history.push('/home')
   })
   const deleteInput = useCallback(() => {
     inputRef.current.value = ''
+    history.push('/home')
   })
   return (
     <>
-      <nav className="navbar">
-        <Link to="/" className="nav-links nav-home" onClick={goBackToHome}>
+      <nav className="navbar" data-testid="navbar">
+        <div className="nav-links nav-home" onClick={goBackToHome}>
           <CloseOutlined />
-        </Link>
+        </div>
         <div className="navbar-container">
           <div className="menu-icon" onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
@@ -76,19 +52,19 @@ function Navbar(props) {
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             <li></li>
             <li className="nav-item">
-              <Link to="/" className="nav-links">
+              <div className="nav-links">
                 <BackwardOutlined />
-              </Link>
+              </div>
             </li>
             <li className="nav-item">
-              <Link to="/" className="nav-links">
+              <div className="nav-links">
                 <ForwardOutlined />
-              </Link>
+              </div>
             </li>
             <li className="nav-item">
-              <Link to="/" className="nav-links" onClick={deleteInput}>
+              <div to="/" className="nav-links" onClick={deleteInput}>
                 <HomeOutlined />
-              </Link>
+              </div>
             </li>
           </ul>
         </div>
@@ -101,4 +77,4 @@ function Navbar(props) {
   )
 }
 
-export default withRouter(Navbar)
+export default Navbar
